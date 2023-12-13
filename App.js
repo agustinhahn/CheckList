@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './src/Data/Screens/Home'
+import Comprados from './src/Data/Screens/Comprados';
 
 export default function App() {
+  const [verComprados, setVerComprados] = useState(false)
+
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {verComprados ?
+        <Comprados />
+        :
+        <Home setAction={setVerComprados}/>
+      }
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    width:"100%",
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'start',
   },
 });
