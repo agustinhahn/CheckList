@@ -15,8 +15,12 @@ const NuevaNota = ({AddNota, setNameNewNota, nameNewNota,cantNewNota,setCantNewN
                 style={styles.input}
                 onChangeText={(text) => setCantNewNota(text)}
             />
-            <Pressable  style={styles.container} onPress={AddNota}>ADD</Pressable>
-            <Pressable style={styles.container} onPress={()=>setAddNewNote(false)}>CANCEL </Pressable>
+            <Pressable  style={styles.container} onPress={AddNota}>
+                <Text style={styles.input}>ADD</Text>
+            </Pressable>
+            <Pressable style={styles.container} onPress={()=>setAddNewNote(false)}>
+                <Text style={styles.input}>CANCEL</Text>
+            </Pressable>
         </View>
     )
 }
