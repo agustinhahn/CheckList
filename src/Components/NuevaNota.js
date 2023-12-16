@@ -1,6 +1,6 @@
 import { Pressable, Text, TextInput, View, StyleSheet, Button } from 'react-native'
 
-const NuevaNota = ({AddNota, setNameNewNota, nameNewNota,cantNewNota,setCantNewNota, setAddNewNote}) => {
+const NuevaNota = ({ AddNota, setNameNewNota, nameNewNota, cantNewNota, setCantNewNota, setAddNewNote }) => {
     return (
         <View>
             <TextInput
@@ -15,12 +15,14 @@ const NuevaNota = ({AddNota, setNameNewNota, nameNewNota,cantNewNota,setCantNewN
                 style={styles.input}
                 onChangeText={(text) => setCantNewNota(text)}
             />
-            <Pressable  style={styles.container} onPress={AddNota}>
-                <Text style={styles.input}>ADD</Text>
-            </Pressable>
-            <Pressable style={styles.container} onPress={()=>setAddNewNote(false)}>
-                <Text style={styles.input}>CANCEL</Text>
-            </Pressable>
+            <View style={styles.buttonContainer}>
+                <Pressable style={styles.addButton} onPress={AddNota}>
+                    <Text style={styles.buttonText}>ADD</Text>
+                </Pressable>
+                <Pressable style={styles.cancelButton} onPress={() => setAddNewNote(false)}>
+                    <Text style={styles.buttonText}>CANCEL</Text>
+                </Pressable>
+            </View>
         </View>
     )
 }
@@ -28,22 +30,37 @@ const NuevaNota = ({AddNota, setNameNewNota, nameNewNota,cantNewNota,setCantNewN
 export default NuevaNota
 
 const styles = StyleSheet.create({
-    input: {
-        backgroundColor: "#FCFFFC",
-        borderWidth: 1,
-        padding: 2,
-        width: 180,
-        justifyContent:"center",
-        alignItems:'center'
-    },
     container: {
         flex: 1,
-        backgroundColor: 'black',
-        alignItems: 'center',
         justifyContent: 'center',
-        color:"yellow"
+        alignItems: 'center',
     },
-    textInput: {
-        color: 'white'
-    }
-})
+    input: {
+        backgroundColor: '#FCFFFC',
+        borderWidth: 1,
+        padding: 10,
+        width: 180,
+        marginBottom: 10,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    addButton: {
+        backgroundColor: 'green',
+        padding: 10,
+        marginHorizontal: 5,
+        borderRadius: 5,
+    },
+    cancelButton: {
+        backgroundColor: 'red',
+        padding: 10,
+        marginHorizontal: 5,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        textAlign: 'center',
+    },
+});

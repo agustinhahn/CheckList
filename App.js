@@ -3,8 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/Data/Screens/Home'
 import Comprados from './src/Data/Screens/Comprados';
 import uuid from 'react-native-uuid';
+import {colors} from './src/Data/Global/Colors/Colors'
+import { useFonts } from "expo-font"
 
 export default function App() {
+  
+
   const [verComprados, setVerComprados] = useState(false)
   const [artComprados, setArtComprados] = useState([])
   const [addNewNote, setAddNewNote] = useState(false)
@@ -14,6 +18,7 @@ export default function App() {
   const [artComprado, setArtComprado] = useState("")
   const [limpiarLista, setLimpiarLista] = useState(false)
   const [limpiarComprados, setLimpiarComprados] = useState(false)
+
 
   const AddNota = () =>{
     if(nameNewNota !== ""){
@@ -65,6 +70,11 @@ useEffect(()=>{
       setLimpiarComprados(false)
     }
   },[limpiarComprados])
+
+  const [fontLoaded] = useFonts({
+    Josefin:require("./assets/Fonts/JosefinSans-Bold.ttf")
+  })
+  if(!fontLoaded) return null
   return (
 
     <View style={styles.container}>
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
   container: {
     width:"100%",
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: colors.principal,
     alignItems: 'center',
     justifyContent: 'start',
   },

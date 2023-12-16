@@ -12,11 +12,10 @@ const Comprados = ({ artComprados ,setVerComprados, DeleteComprado, setLimpiarCo
     return (
         <View style={styles.container}>
             <Header title="ARTICULOS COMPRADOS"/>
-            <BotonVolver setVerComprados={setVerComprados} title="VOLVER" />
-            <BotonGral action="Limpiar lista" setAction={setLimpiarComprados} />
-            <Pressable onPress={()=> console.log(artComprados)}>
-                <Text>PROBANDO</Text>
-            </Pressable>
+            <View style={styles.buttonContainer}>
+                <BotonVolver style={styles.button} setVerComprados={setVerComprados} title="VOLVER" />
+                <BotonGral style={styles.button} action="Limpiar lista" setAction={setLimpiarComprados} />
+            </View>
             <FlatList 
             data={artComprados}
             keyExtractor={item => item.id}
@@ -31,6 +30,18 @@ export default Comprados
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
+        width: "80%",
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingTop: 20,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom: 20,
+        textAlign: "center",
+    },
+    button: {
+        borderWidth: 2
     }
-})
+});

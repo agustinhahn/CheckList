@@ -1,5 +1,7 @@
 export const colors = {
-    green1: "green",
-    green2: "blue",
-    green3: "red"
+    principal: "#000000",
+    header: "#1A25ED",
+    bottons: "#85EDED",
+    text: "white",
+    card: "#4000EB"
 }
